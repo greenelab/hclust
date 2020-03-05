@@ -1,0 +1,34 @@
+{
+  "name": "hclust",
+  "version": "1.0.0",
+  "description": "Agglomerative hierarchical clustering in JavaScript",
+  "keywords": [
+    "hierarchy",
+    "hierarchical",
+    "cluster",
+    "clustering",
+    "agglomerative",
+    "data",
+    "tree"
+  ],
+  "author": "Vincent Rubinetti",
+  "license": "MIT",
+  "repository": "git+https://github.com/greenelab/hclust.git",
+  "main": "./build/hclust.min.js",
+  "module": "./build/hclust.min.js",
+  "scripts": {
+    "test": "bash ./scripts/build.sh && bash ./scripts/test.sh",
+    "build": "bash ./scripts/build.sh"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "babel-preset-minify": "^0.5.1",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-html": "^6.0.0",
+    "jest": "^25.1.0"
+  },
+  "browserslist": "> 0.1%, not dead"
+}
