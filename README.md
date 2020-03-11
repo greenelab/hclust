@@ -7,6 +7,8 @@ Adapted from [hcluster.js](https://github.com/cmpolis/hcluster.js) by [@ChrisPol
 
 ### Usage
 
+#### Browser
+
 ```html
 <script src="hclust.min.js"></script>
 <script>
@@ -18,7 +20,15 @@ Adapted from [hcluster.js](https://github.com/cmpolis/hcluster.js) by [@ChrisPol
 </script>
 ```
 
-or 
+#### Node
+
+`npm install git+https://github.com/greenelab/hclust.git`
+
+or
+
+`yarn add git+https://github.com/greenelab/hclust.git`
+
+then 
 
 ```javascript
 import { clusterData } from 'hclust';
