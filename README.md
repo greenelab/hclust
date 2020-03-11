@@ -1,7 +1,7 @@
 ### hclust
 [Agglomerative hierarchical clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering) in JavaScript
 
-Adapted from [hcluster.js](https://github.com/cmpolis/hcluster.js) by [@ChrisPolis](https://twitter.com/chrispolis)
+Inspired by the MIT-licensed [hcluster.js](https://github.com/cmpolis/hcluster.js) by [@ChrisPolis](https://twitter.com/chrispolis)
 
 ---
 
@@ -91,7 +91,7 @@ A function to calculate the distance between two equal-dimension vectors, used i
 function (arrayA, arrayB) { return someNumber; }
 ```
 
-The function receives two equal-length arrays of numbers.
+The function receives two equal-length arrays of numbers (ints or floats) and should return a number (int or float).
 
 *Default value:* `euclideanDistance` from this `hclust` package
 
@@ -104,6 +104,7 @@ function (arrayA, arrayB, distanceMatrix) { return someNumber; }
 ```
 
 The function receives two sets of indexes and the distance matrix computed between each datum and every other datum.
+The function should return a number (int or float)
 
 *Default value:* `averageDistance` from this `hclust` package  
 *Other built-in values:* `minDistance` and `maxDistance` from this `hclust` package
@@ -123,6 +124,10 @@ The function receives the percent progress between `0` and `1`.
 **Note:** [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage) is called in the same places as `onProgress`, if the script is running as a [web worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers).
 
 #### Returns
+
+```javascript
+const { clusters, distances, order, clustersGivenK } = clusterData(...);
+```
 
 **`clusters`**
 
@@ -208,7 +213,7 @@ you may want to run it as a web worker so the browser doesn't freeze for a long 
 - This package makes some performance optimizations, such as removing unnecessary loops through big sets.
 It has been tested on modern OS's (Windows, Mac, Linux, iOS, Android), devices (desktop, laptop, mobile), browsers (Chrome, Firefox, Safari), contexts (main thread, web worker), and hosting locations (local, online).
 The results vary widely, and are likely sensitive to the specifics of hardware, cpu cores, browser implementation, etc.
-But in general, this package is significantly more performant than `hcluster.js`, to varying degrees, and is always at least as performant on average.
+But in general, this package is more performant than `hcluster.js`, to varying degrees, and is always at least as performant on average.
 Chrome seems to see the most performance gains (up to 10x, when the row number is high), while Firefox seems to see no gains.
 - This package does not touch the input data object, whereas the `hcluster.js` package does.
 D3 often expects you to mutate data objects directly, which is now typically considered bad practice in JavaScript.
