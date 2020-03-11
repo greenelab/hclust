@@ -22,11 +22,11 @@ Adapted from [hcluster.js](https://github.com/cmpolis/hcluster.js) by [@ChrisPol
 
 #### Node
 
-`npm install git+https://github.com/greenelab/hclust.git`
+`npm install @greenelab/hclust.git`
 
 or
 
-`yarn add git+https://github.com/greenelab/hclust.git`
+`yarn add @greenelab/hclust.git`
 
 then 
 
