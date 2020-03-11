@@ -95,7 +95,7 @@ function (arrayA, arrayB, distanceMatrix) { return someNumber; }
 
 The function receives two sets of indexes and the distance matrix computed between each datum and every other datum.
 
-*Default value:* `averageDistance` from this `hclust` package
+*Default value:* `averageDistance` from this `hclust` package  
 *Other built-in values:* `minDistance` and `maxDistance` from this `hclust` package
 
 **`onProgress`**
@@ -189,7 +189,7 @@ Calculates the largest distance between pairs of clusters.
 
 ### Comparison with [hcluster.js](https://github.com/cmpolis/hcluster.js)
 
-- This package does not include items from the original dataset in the results.
+- This package does not duplicate items from the original dataset in the results.
 Results are given in terms of indexes, either with respect to the original dataset or the distance matrix.
 - This package uses more modern JavaScript syntaxes and practices to make the code cleaner and simpler.
 - This package provides an `onProgress` callback and calls `postMessage` for use in [web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers).
@@ -209,10 +209,20 @@ In the future, a simple option could be added to instruct the algorithm to mutat
 
 ### Making changes to the library
 
-1. [Install yarn](https://classic.yarnpkg.com/en/docs/install)
-2. Clone this repo and navigate to it in your command terminal
-3. Run `yarn install`
-4. Make desired changes to `./src/hclust.js`
-5. Run `npm run test` to automatically rebuild the library and run test suite
-6. Run `npm run build` to just rebuild the library, and output the compiled contents to `./build/hclust.min.js`
-7. Commit changes to repo if necessary. *Make sure to run the build command before committing; it wont happen automatically.*
+1. [Install Node](https://nodejs.org/en/download/)
+2. [Install Yarn](https://classic.yarnpkg.com/en/docs/install)
+3. Clone this repo and navigate to it in your command terminal
+4. Run `yarn install` to install this package's dependencies
+5. Make desired changes to `./src/hclust.js`
+6. Run `npm run test` to automatically rebuild the library and run test suite
+7. Run `npm run build` to just rebuild the library, and output the compiled contents to `./build/hclust.min.js`
+8. Commit changes to repo if necessary. *Make sure to run the build command before committing; it won't happen automatically.*
+
+---
+
+### Similar Libraries
+
+[cmpolis/hcluster.js](https://github.com/cmpolis/hcluster.js)
+[harthur/clustering](https://github.com/harthur/clustering)
+[mljs/hclust](https://github.com/mljs/hclust)
+[math-utils/hierarchical-clustering](https://github.com/math-utils/hierarchical-clustering)

@@ -1,5 +1,5 @@
 {
-  "name": "hclust",
+  "name": "@greenelab/hclust",
   "version": "1.0.0",
   "description": "Agglomerative hierarchical clustering in JavaScript",
   "keywords": [

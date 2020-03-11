@@ -7,7 +7,7 @@ export const euclideanDistance = (a, b) => {
   return Math.sqrt(sum);
 };
 
-// get average distance between sets of indexes, give distance matrix
+// get average distance between sets of indexes, given distance matrix
 export const averageDistance = (setA, setB, distances) => {
   let distance = 0;
   for (const a of setA) {
@@ -18,7 +18,7 @@ export const averageDistance = (setA, setB, distances) => {
   return distance / setA.length / setB.length;
 };
 
-// get smallest distance between sets of indexes, give distance matrix
+// get smallest distance between sets of indexes, given distance matrix
 export const minDistance = (setA, setB, distances) => {
   let smallest = Infinity;
   for (const a of setA) {
@@ -31,7 +31,7 @@ export const minDistance = (setA, setB, distances) => {
   return smallest;
 };
 
-// get largest distance between sets of indexes, give distance matrix
+// get largest distance between sets of indexes, given distance matrix
 export const maxDistance = (setA, setB, distances) => {
   let largest = 0;
   for (const a of setA) {
