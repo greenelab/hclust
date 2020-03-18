@@ -18,32 +18,6 @@ export const averageDistance = (setA, setB, distances) => {
   return distance / setA.length / setB.length;
 };
 
-// get smallest distance between sets of indexes, given distance matrix
-export const minDistance = (setA, setB, distances) => {
-  let smallest = Infinity;
-  for (const a of setA) {
-    for (const b of setB) {
-      if (distances[a][b] < smallest)
-        smallest = distances[a][b];
-    }
-  }
-
-  return smallest;
-};
-
-// get largest distance between sets of indexes, given distance matrix
-export const maxDistance = (setA, setB, distances) => {
-  let largest = 0;
-  for (const a of setA) {
-    for (const b of setB) {
-      if (distances[a][b] > largest)
-        largest = distances[a][b];
-    }
-  }
-
-  return largest;
-};
-
 // update progress by calling user onProgress and postMessage for web workers
 const updateProgress = (stepNumber, stepProgress, onProgress) => {
   // currently only two distinct steps: computing distance matrix and clustering

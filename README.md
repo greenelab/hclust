@@ -15,8 +15,6 @@ Inspired by the MIT-licensed [hcluster.js](https://github.com/cmpolis/hcluster.j
   hclust.clusterData(...);
   hclust.euclideanDistance(...);
   hclust.avgDistance(...);
-  hclust.minDistance(...);
-  hclust.maxDistance(...);
 </script>
 ```
 
@@ -34,8 +32,6 @@ then
 import { clusterData } from 'hclust';
 import { euclideanDistance } from 'hclust';
 import { avgDistance } from 'hclust';
-import { minDistance } from 'hclust';
-import { maxDistance } from 'hclust';
 ```
 
 ---
@@ -97,7 +93,7 @@ The function receives two equal-length arrays of numbers (ints or floats) and sh
 
 **`linkage`**
 
-A function to calculate the distance between pairs of clusters, used in determining linkage criterion, in the format:
+A function to calculate the distance between pairs of clusters based on a distance matrix, used in determining linkage criterion, in the format:
 
 ```javascript
 function (arrayA, arrayB, distanceMatrix) { return someNumber; }
@@ -107,7 +103,6 @@ The function receives two sets of indexes and the distance matrix computed betwe
 The function should return a number (int or float)
 
 *Default value:* `averageDistance` from this `hclust` package  
-*Other built-in values:* `minDistance` and `maxDistance` from this `hclust` package
 
 **`onProgress`**
 
@@ -184,21 +179,15 @@ A list of tree slices in terms of original data array indexes, where index = K, 
 
 ---
 
+### `euclideanDistance(arrayA, arrayB)`
+
+Calculates the [euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance) between two equal-dimension vectors.
+
+---
+
 ### `avgDistance(arrayA, arrayB, distanceMatrix)`
 
-Calculates the average distance between pairs of clusters.
-
----
-
-### `minDistance(arrayA, arrayB, distanceMatrix)`
-
-Calculates the smallest distance between pairs of clusters.
-
----
-
-### `maxDistance(arrayA, arrayB, distanceMatrix)`
-
-Calculates the largest distance between pairs of clusters.
+Calculates the average distance between pairs of clusters based on a distance matrix.
 
 ---
 
@@ -219,6 +208,9 @@ Chrome seems to see the most performance gains (up to 10x, when the row number i
 D3 often expects you to mutate data objects directly, which is now typically considered bad practice in JavaScript.
 Instead, this package returns the useful data from the clustering algorithm (including the distance matrix), and allows you to mutate or not mutate the data object depending on your needs.
 In the future, a simple option could be added to instruct the algorithm to mutate the data object, if users can provide good use cases for what information is needed for constructing various D3 visualizations.
+- This package does not have `minDistance` or `maxDistance` functions built in.
+They have been left out because they are not as effective as `averageDistance` per [this reference](https://onlinelibrary.wiley.com/doi/abs/10.1002/9780470316801.ch5).
+They can easily be used if needed by providing a custom function to the `distance` parameter of `clusterData`.
 
 ---
 
@@ -235,9 +227,15 @@ In the future, a simple option could be added to instruct the algorithm to mutat
 
 ---
 
-### Similar Libraries
+### Similar libraries
 
 [cmpolis/hcluster.js](https://github.com/cmpolis/hcluster.js)
 [harthur/clustering](https://github.com/harthur/clustering)
 [mljs/hclust](https://github.com/mljs/hclust)
 [math-utils/hierarchical-clustering](https://github.com/math-utils/hierarchical-clustering)
+
+---
+
+### Further reading
+
+The [AGNES](https://onlinelibrary.wiley.com/doi/abs/10.1002/9780470316801.ch5) (AGglomerative NESting) method; continuously merge nodes that have the least dissimilarity.

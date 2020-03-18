@@ -14,7 +14,7 @@ test('can import hclust', () => {
   expect(clusterData).toBeDefined();
 });
 
-test('test dataset 1, default settings', () => {
+test('test dataset 1', () => {
   // get received results from this package
   const resultsB = clusterData({
     data: dataset1,
@@ -52,85 +52,7 @@ test('test dataset 1, default settings', () => {
   expect(sliceB).toStrictEqual(sliceA);
 });
 
-test('test dataset 1, min distance linkage', () => {
-  // get received results from this package
-  const resultsB = clusterData({
-    data: dataset1,
-    key: 'value',
-    linkage: minDistance,
-    onProgress: null
-  });
-
-  // transform order to be in terms of sample name/id
-  const orderB = resultsB.order
-    .map((index) => dataset1[index])
-    .map((node) => node.sample);
-  // transform slice to be in terms of sample name/id
-  const sliceB = resultsB.clustersGivenK[10].map((cluster) =>
-    cluster.map((index) => dataset1[index]).map((node) => node.sample)
-  );
-
-  // get "expected" results from hcluster.js
-  const resultsA = hcluster()
-    .distance('euclidean')
-    .linkage('min')
-    .posKey('value')
-    .data(dataset1);
-
-  // transform order to be in terms of sample name/id
-  const orderA = resultsA.orderedNodes().map((node) => node.sample);
-  // transform slice to be in terms of sample name/id
-  const sliceA = resultsA
-    .getClusters(10)
-    .map((cluster) => cluster.map((node) => node.sample));
-
-  console.log('Expected order:', orderA, 'Received order:', orderB);
-  console.log('Expected slice:', sliceA, 'Received slice:', sliceB);
-
-  expect(orderB).toStrictEqual(orderA);
-  expect(sliceB).toStrictEqual(sliceA);
-});
-
-test('test dataset 1, max distance linkage', () => {
-  // get received results from this package
-  const resultsB = clusterData({
-    data: dataset1,
-    key: 'value',
-    linkage: maxDistance,
-    onProgress: null
-  });
-
-  // transform order to be in terms of sample name/id
-  const orderB = resultsB.order
-    .map((index) => dataset1[index])
-    .map((node) => node.sample);
-  // transform slice to be in terms of sample name/id
-  const sliceB = resultsB.clustersGivenK[10].map((cluster) =>
-    cluster.map((index) => dataset1[index]).map((node) => node.sample)
-  );
-
-  // get "expected" results from hcluster.js
-  const resultsA = hcluster()
-    .distance('euclidean')
-    .linkage('max')
-    .posKey('value')
-    .data(dataset1);
-
-  // transform order to be in terms of sample name/id
-  const orderA = resultsA.orderedNodes().map((node) => node.sample);
-  // transform slice to be in terms of sample name/id
-  const sliceA = resultsA
-    .getClusters(10)
-    .map((cluster) => cluster.map((node) => node.sample));
-
-  console.log('Expected order:', orderA, 'Received order:', orderB);
-  console.log('Expected slice:', sliceA, 'Received slice:', sliceB);
-
-  expect(orderB).toStrictEqual(orderA);
-  expect(sliceB).toStrictEqual(sliceA);
-});
-
-test('test dataset 2, default settings', () => {
+test('test dataset 2', () => {
   // get received results from this package
   const resultsB = clusterData({
     data: dataset2,
