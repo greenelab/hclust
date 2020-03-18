@@ -208,9 +208,7 @@ Chrome seems to see the most performance gains (up to 10x, when the row number i
 D3 often expects you to mutate data objects directly, which is now typically considered bad practice in JavaScript.
 Instead, this package returns the useful data from the clustering algorithm (including the distance matrix), and allows you to mutate or not mutate the data object depending on your needs.
 In the future, a simple option could be added to instruct the algorithm to mutate the data object, if users can provide good use cases for what information is needed for constructing various D3 visualizations.
-- This package does not have `minDistance` or `maxDistance` functions built in.
-They have been left out because they are not as effective as `averageDistance` per [this reference](https://onlinelibrary.wiley.com/doi/abs/10.1002/9780470316801.ch5).
-They can easily be used if needed by providing a custom function to the `distance` parameter of `clusterData`.
+- This package leaves out the `minDistance` or `maxDistance` functions that are built into `hcluster.js`, because -- per [this reference](https://onlinelibrary.wiley.com/doi/abs/10.1002/9780470316801.ch5) -- they are not as effective as `averageDistance`.
 
 ---
 
