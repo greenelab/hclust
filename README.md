@@ -20,11 +20,11 @@ Inspired by the MIT-licensed [hcluster.js](https://github.com/cmpolis/hcluster.j
 
 #### Node
 
-`npm install @greenelab/hclust.git`
+`npm install @greenelab/hclust`
 
 or
 
-`yarn add @greenelab/hclust.git`
+`yarn add @greenelab/hclust`
 
 then 
 
