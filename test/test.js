@@ -1,6 +1,4 @@
 import { clusterData } from '../build/hclust.min.js';
-import { minDistance } from '../build/hclust.min.js';
-import { maxDistance } from '../build/hclust.min.js';
 import hcluster from './chrispolis.hcluster.min.js';
 
 import dataset1 from './dataset-1.json';
