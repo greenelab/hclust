@@ -1,7 +1,8 @@
 ### hclust
 [Agglomerative hierarchical clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering) in JavaScript
 
-Inspired by the MIT-licensed [hcluster.js](https://github.com/cmpolis/hcluster.js) by [@ChrisPolis](https://twitter.com/chrispolis)
+Inspired by the MIT-licensed [hcluster.js](https://github.com/cmpolis/hcluster.js) by [@ChrisPolis](https://twitter.com/chrispolis).
+[See the comparison of the two below](#comparison-with-hclusterjs).
 
 ---
 
@@ -197,17 +198,15 @@ Calculates the average distance between pairs of clusters based on a distance ma
 Results are given in terms of indexes, either with respect to the original dataset or the distance matrix.
 - This package uses more modern JavaScript syntaxes and practices to make the code cleaner and simpler.
 - This package provides an `onProgress` callback and calls `postMessage` for use in [web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers).
-Because clustering can take a long time with large data sets,
-you may want to run it as a web worker so the browser doesn't freeze for a long time, and you may need a callback so you can give users visual feedback on its progress.
+Because clustering can take a long time with large data sets, you may want to run it as a web worker so the browser doesn't freeze for a long time, and you may need a callback so you can give users visual feedback on its progress.
 - This package makes some performance optimizations, such as removing unnecessary loops through big sets.
-It has been tested on modern OS's (Windows, Mac, Linux, iOS, Android), devices (desktop, laptop, mobile), browsers (Chrome, Firefox, Safari), contexts (main thread, web worker), and hosting locations (local, online).
+It has been tested on various OS's (Windows, Mac, Linux, iOS, Android), devices (desktop, laptop, mobile), browsers (Chrome, Firefox, Safari), contexts (main thread, web worker), and hosting locations (local, online).
 The results vary widely, and are likely sensitive to the specifics of hardware, cpu cores, browser implementation, etc.
 But in general, this package is more performant than `hcluster.js`, to varying degrees, and is always at least as performant on average.
 Chrome seems to see the most performance gains (up to 10x, when the row number is high), while Firefox seems to see no gains.
 - This package does not touch the input data object, whereas the `hcluster.js` package does.
 D3 often expects you to mutate data objects directly, which is now typically considered bad practice in JavaScript.
 Instead, this package returns the useful data from the clustering algorithm (including the distance matrix), and allows you to mutate or not mutate the data object depending on your needs.
-In the future, a simple option could be added to instruct the algorithm to mutate the data object, if users can provide good use cases for what information is needed for constructing various D3 visualizations.
 - This package leaves out the `minDistance` or `maxDistance` functions that are built into `hcluster.js`, because -- per [this reference](https://onlinelibrary.wiley.com/doi/abs/10.1002/9780470316801.ch5) -- they are not as effective as `averageDistance`.
 
 ---
@@ -219,8 +218,8 @@ In the future, a simple option could be added to instruct the algorithm to mutat
 3. Clone this repo and navigate to it in your command terminal
 4. Run `yarn install` to install this package's dependencies
 5. Make desired changes to `./src/hclust.js`
-6. Run `npm run test` to automatically rebuild the library and run test suite
-7. Run `npm run build` to just rebuild the library, and output the compiled contents to `./build/hclust.min.js`
+6. Run `yarn test` to automatically rebuild the library and run test suite
+7. Run `yarn build` to just rebuild the library, and output the compiled contents to `./build/hclust.min.js`
 8. Commit changes to repo if necessary. *Make sure to run the build command before committing; it won't happen automatically.*
 
 ---
