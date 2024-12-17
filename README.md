@@ -30,9 +30,9 @@ or
 then 
 
 ```javascript
-import { clusterData } from 'hclust';
-import { euclideanDistance } from 'hclust';
-import { avgDistance } from 'hclust';
+import { clusterData } from '@greenelab/hclust';
+import { euclideanDistance } from '@greenelab/hclust';
+import { avgDistance } from '@greenelab/hclust';
 ```
 
 ---
